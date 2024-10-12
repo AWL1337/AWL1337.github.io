@@ -1,92 +1,43 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>10 Лучших компьютерных игр всех времен</title>
-  <meta charset="UTF-8">
-  <meta name="keywords" content="лучшие, игры">
-  <meta name="description" content="Список лучших компьютерный игр">
+    <meta charset="UTF-8">
+    <title>10 Лучших компьютерных игр всех времен</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="лучшие, игры">
+    <meta name="description" content="Список лучших компьютерный игр">
+    <link href="style.css" rel="stylesheet">
 </head>
-
 
 <body>
 
-<header>
-  <h1>10 Лучших компьютерных игр всех времен</h1>
-  <nav>
-    <a href="#">Home</a> <a href="#">Страницы</a> <a href="#">Блог</a>
-  </nav>
+<header class="Head">
+    <h1 class="Title">10 Лучших компьютерных игр всех времен</h1>
+    <nav class="Nav">
+        <a href="#">Home</a> <a href="#">Страницы</a> <a href="#">Блог</a>
+    </nav>
 </header>
 
 <main>
-  <section>
-    <sup><strong>Чтобы выигрывать, прежде всего нужно играть. Энштейн</strong></sup>
-  </section>
+    <section>
+        <h2>Блок с играми</h2>
+    </section>
 
-  <section>
-    <h2>Блок с играми</h2>
+    <div class="main-content">
+        <div class="form">
+            <h2>Games</h2>
 
-  </section>
+            <button type="Next">Next</button>
+        </div>
+    </div>
 
-  <section>
-    <aside></aside>
-  </section>
-
-  <section>
-    <ol>
-      <li>Ссылка на игру 1</li>
-      <li>Сслыка на игру 2</li>
-      <li>Ссылка на игру 3</li>
-    </ol>
-  </section>
-
-  <section>
-    <h2>ASCII Art</h2>
-    <pre>
-             _________________.---.______
-            (_(______________(_o o_(____()
-                         .___.'. .'.___.
-                         \ o    Y    o /
-                          \ \__   __/ /
-                           '.__'-'__.'
-                               '''
-            </pre>
-  </section>
-
-  <section>
-    <h2>Code snippet</h2>
-    <pre>
-<code>
-    void Walls() {
-        SetColor(Blue, Black);
-
-        for (int m = 15; m < 31; m++) {
-            SetXY(m, 5); cout << "*";
-            SetXY(m, 14); cout << "*";
-        }
-
-        for (int m = 6; m < 14; m++) {
-            SetXY(15, m); cout << "*";
-            SetXY(30, m); cout << "*";
-        }
-    }
-
-
-    bool isWordGuessed() {
-        for (char c : word) {
-            if (guessedLetters.find(c) == string::npos) {
-                return false;
-            }
-        }
-        return true;
-    }
-</code>
-            </pre>
-  </section>
 </main>
 
-<footer>
-  <p>Обо мне: ссылка на гитхаб</p>
+<footer  class="Footer">
+    <p>Обо мне: <a href="https://github.com/AWL1337">github</a></p>
 </footer>
 
 </body>
 </html>
+
+

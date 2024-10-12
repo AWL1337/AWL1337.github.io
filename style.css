@@ -1,0 +1,114 @@
+html {
+    font-size: 70%;
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    color:  white;
+}
+
+.Title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.Head {
+    background-color: #D9D9D9;
+    background-image: url('/head.png');
+    background-size: cover;
+    background-position: center;
+    padding: 280px 50px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.Head .image-container {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+
+.Nav {
+    text-align: right;
+    font-size: 14px;
+    margin-left: auto;
+}
+
+.Nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+main {
+    margin-left: 20px;
+    min-height: 700px;
+}
+
+
+.main-content .form {
+    background-color: #D9D9D9;
+    padding: 20px;
+    color: black;
+    font-size: 18px;
+ 
+    width: 1000px;
+    height: 500px;
+    background-position: center;
+    margin: 0 auto 20px;
+}
+
+
+.Next {
+    display: block;
+    margin: 10px 0 10px 0;
+    padding: 10px 20px;
+    background-color: #D9D9D9;
+    color: #333333;
+    border: none;
+    cursor: pointer;
+}
+
+
+img {
+    width: 20px;
+    height: 20px;
+}
+
+.Footer {
+    background-image: url('/overlay.png');
+    padding: 20px;
+    text-align: center;
+    color: white;
+    height: 70px;
+    background-color: #333;
+}
+
+.Footer a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+
+.Footer p {
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+}
