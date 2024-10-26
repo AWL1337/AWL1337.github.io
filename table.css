@@ -1,0 +1,83 @@
+.table {
+    width: 95%;
+    overflow-x: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.table__games {
+    width: 100%;
+    border-collapse: collapse;
+
+    color: black;
+}
+
+.table__games th,
+.table__games td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #333;
+}
+
+.table__games th {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+}
+
+.table__games .odd {
+    background-color: #cbc7c7;
+}
+
+.table__games .even {
+    background-color: #ffffff;
+}
+
+/* Адаптивность для таблицы */
+@media (max-width: 900px) {
+    .table {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .table__games th,
+    .table__games td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .table__games th,
+    .table__games td {
+        padding: 6px;
+        font-size: 12px;
+    }
+}
+
+
+.main-content .main-content__form {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 30px;
+    background-color: #D9D9D9;
+    padding: 20px;
+    color: black;
+    font-size: 18px;
+    min-height: 300px;
+}
+
+
+@media (max-width: 1200px) {
+    .main-content .main-content__form {
+        max-width: 90%;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-content .main-content__form {
+        max-width: 95%;
+        font-size: 14px;
+    }
+}
