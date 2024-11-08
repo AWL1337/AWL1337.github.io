@@ -7,13 +7,14 @@
     <meta name="keywords" content="лучшие, игры">
     <meta name="description" content="Список лучших компьютерный игр">
     <link href="style.css" rel="stylesheet">
+    <link href="table.css" rel="stylesheet">
 </head>
 
 <body>
 
-<header class="Head">
-    <h1 class="Title">10 Лучших компьютерных игр всех времен</h1>
-    <nav class="Nav">
+<header class="head">
+    <h1 class="head__title">10 Лучших компьютерных игр всех времен</h1>
+    <nav class="head__navigation">
         <a href="#">Home</a> <a href="#">Страницы</a> <a href="#">Блог</a>
     </nav>
 </header>
@@ -24,16 +25,77 @@
     </section>
 
     <div class="main-content">
-        <div class="form">
+        <div class="main-content__form">
             <h2>Games</h2>
 
-            <button class="Next">Next</button>
+            <button class="next">Next</button>
         </div>
+
+
+        <div class="grid-table">
+            <!-- Header -->
+            <div class="grid-header">Number</div>
+            <div class="grid-header">Name</div>
+            <div class="grid-header">Description</div>
+            <div class="grid-header">Votes</div>
+            <div class="grid-header">Link</div>
+
+            <!-- Row 1 -->
+            <div class="grid-row">
+                <div class="grid-cell">1</div>
+                <div class="grid-cell">Factorio: Space Age</div>
+                <div class="grid-cell">Factory</div>
+                <div class="grid-cell">5.0</div>
+                <div class="grid-cell">
+                    <a href="https://store.steampowered.com/app/645390/Factorio_Space_Age/">link</a>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="grid-row">
+                <div class="grid-cell">2</div>
+                <div class="grid-cell">CS2</div>
+                <div class="grid-cell">FPS Shooter</div>
+                <div class="grid-cell">4.8</div>
+                <div class="grid-cell">
+                    <a href="https://store.steampowered.com/app/730/CounterStrike_2/">link</a>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="grid-row">
+                <div class="grid-cell">3</div>
+                <div class="grid-cell"></div>
+                <div class="grid-cell"></div>
+                <div class="grid-cell"></div>
+                <div class="grid-cell"></div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="grid-row">
+                <div class="grid-cell">4</div>
+                <div class="grid-cell"></div>
+                <div class="grid-cell"></div>
+                <div class="grid-cell"></div>
+                <div class="grid-cell"></div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="grid-row">
+                <div class="grid-cell">5</div>
+                <div class="grid-cell"></div>
+                <div class="grid-cell"></div>
+                <div class="grid-cell"></div>
+                <div class="grid-cell"></div>
+            </div>
+        </div>
+
     </div>
+
 
 </main>
 
-<footer  class="Footer">
+<footer  class="footer">
     <p>Обо мне: <a href="https://github.com/AWL1337">github</a></p>
 </footer>
 
