@@ -1,4 +1,4 @@
-window.onload = function () {
+(window.onload = function () {
     const loadTime = performance.now();
 
     const loadTimeDisplay = document.createElement('div');
@@ -14,4 +14,4 @@ window.onload = function () {
     loadTimeDisplay.textContent = `Page load time: ${seconds} seconds`;
 
     document.body.appendChild(loadTimeDisplay);
-}
+})();
