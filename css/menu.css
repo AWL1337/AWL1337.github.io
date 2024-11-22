@@ -1,0 +1,27 @@
+.head__navigation a {
+    position: relative;
+    transition: color 0.3s;
+}
+
+.head__navigation a:hover {
+    color: #ff9900;
+}
+
+.head__navigation a.active {
+    color: #ff9900;
+}
+
+.head__navigation a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff9900;
+    transition: width 0.3s;
+}
+
+.head__navigation a:hover::after {
+    width: 100%;
+}
