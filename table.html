@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Конструктор таблиц - Игры</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/table.css" rel="stylesheet">
+    <link href="css/menu.css" rel="stylesheet">
+
+    <script src="js/activePage.js"></script>
+    <script src="js/pageLoad.js"></script>
+    <script src="js/table.js" defer></script>
+</head>
+<body>
+<header class="head">
+    <h1 class="head__title">Конструктор таблиц</h1>
+    <nav class="head__navigation">
+        <a href="index.html">Home</a>
+        <a href="table.html">Таблица</a>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Создание таблицы</h2>
+        <form id="table-form">
+            <label for="game-name">Название игры:</label>
+            <input type="text" id="game-name" name="gameName" required>
+
+            <label for="game-description">Описание:</label>
+            <input type="text" id="game-description" name="gameDescription" required>
+
+            <label for="game-rating">Рейтинг:</label>
+            <input type="number" id="game-rating" name="gameRating" step="0.1" min="0" max="5" required>
+
+            <label for="game-link">Ссылка:</label>
+            <input type="url" id="game-link" name="gameLink" required>
+
+            <button type="submit">Добавить в таблицу</button>
+            <button type="button" id="save-data">Сохранить</button>
+            <button type="button" id="load-data">Загрузить</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Результат:</h2>
+        <div id="result-table">
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>Обо мне: <a href="https://github.com/AWL1337">github</a></p>
+</footer>
+</body>
+</html>
