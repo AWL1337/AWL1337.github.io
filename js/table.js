@@ -3,14 +3,40 @@ document.addEventListener("DOMContentLoaded", () => {
     const preloader = document.getElementById("preloader");
     const API_BASE_URL = "http://localhost:8080/games";
 
+    function createTable() {
+
+        const table = document.createElement("table");
+        table.id = "gamesTable";
+        table.classList.add("display");
+
+        // Создаём заголовок таблицы
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+
+        const headers = ["ID", "Название", "Описание", "Рейтинг", "Ссылка"];
+        headers.forEach((headerText) => {
+            const th = document.createElement("th");
+            th.textContent = headerText;
+            headerRow.appendChild(th);
+        });
+
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        const tbody = document.createElement("tbody");
+        table.appendChild(tbody);
+
+        resultTable.appendChild(table);
+        return tbody;
+    }
+
     function createCell(content, isLink = false) {
-        const cell = document.createElement("div");
-        cell.classList.add("grid-cell");
+        const cell = document.createElement("td");
 
         if (isLink) {
             const link = document.createElement("a");
             link.href = content;
-            link.textContent = "Link";
+            link.textContent = "Ссылка";
             link.target = "_blank";
             cell.appendChild(link);
         } else {
@@ -20,9 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return cell;
     }
 
-    function createRow({id, name, description, rating, link }) {
-        const row = document.createElement("div");
-        row.classList.add("grid-row");
+    function createRow({ id, name, description, rating, link }) {
+        const row = document.createElement("tr");
 
         row.appendChild(createCell(id));
         row.appendChild(createCell(name));
@@ -30,7 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
         row.appendChild(createCell(rating));
         row.appendChild(createCell(link, true));
 
-        resultTable.appendChild(row);
+        row.addEventListener("click", () => {
+            Swal.fire({
+                title: `Игра: ${name}`,
+                html: `
+                    <p><strong>ID:</strong> ${id}</p>
+                    <p><strong>Описание:</strong> ${description}</p>
+                    <p><strong>Рейтинг:</strong> ${rating}</p>
+                    <p><a href="${link}" target="_blank">Перейти по ссылке</a></p>
+                `,
+                icon: "info",
+                confirmButtonText: "Закрыть"
+            });
+        });
+
+        return row;
     }
 
     const showPreloader = (isVisible) => {
@@ -57,7 +96,19 @@ document.addEventListener("DOMContentLoaded", () => {
             if (games.length === 0) {
                 showError("Нет данных для отображения");
             } else {
-                games.forEach(createRow);
+                const tbody = createTable();
+                games.forEach((game) => {
+                    tbody.appendChild(createRow(game));
+                });
+
+                $('#gamesTable').DataTable({
+                    paging: true,
+                    searching: true,
+                    ordering: true,
+                    language: {
+                        url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/ru.json"
+                    }
+                });
             }
         } catch (error) {
             console.error(error);
