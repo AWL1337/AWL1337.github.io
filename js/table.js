@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const preloader = document.getElementById("preloader");
     const API_BASE_URL = "http://localhost:8080/games";
 
+    // Создаём таблицу
     function createTable() {
 
         const table = document.createElement("table");
@@ -56,16 +57,17 @@ document.addEventListener("DOMContentLoaded", () => {
         row.appendChild(createCell(link, true));
 
         row.addEventListener("click", () => {
+            //функция для создания модального окна
             Swal.fire({
-                title: `Игра: ${name}`,
-                html: `
+                title: `Игра: ${name}`, // заголовок
+                html: ` 
                     <p><strong>ID:</strong> ${id}</p>
                     <p><strong>Описание:</strong> ${description}</p>
                     <p><strong>Рейтинг:</strong> ${rating}</p>
                     <p><a href="${link}" target="_blank">Перейти по ссылке</a></p>
-                `,
+                `, // html содержимое
                 icon: "info",
-                confirmButtonText: "Закрыть"
+                confirmButtonText: "Закрыть" // текст на кнопке "принять"
             });
         });
 
