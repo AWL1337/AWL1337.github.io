@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("table-form");
     const resultTable = document.getElementById("result-table");
-    const saveDataButton = document.getElementById("save-data");
-    const loadDataButton = document.getElementById("load-data");
+    const preloader = document.getElementById("preloader");
+    const API_BASE_URL = "http://localhost:8080/games";
 
     function createCell(content, isLink = false) {
         const cell = document.createElement("div");
@@ -21,10 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return cell;
     }
 
-    function createRow({ name, description, rating, link }) {
+    function createRow({id, name, description, rating, link }) {
         const row = document.createElement("div");
         row.classList.add("grid-row");
 
+        row.appendChild(createCell(id));
         row.appendChild(createCell(name));
         row.appendChild(createCell(description));
         row.appendChild(createCell(rating));
@@ -33,44 +33,39 @@ document.addEventListener("DOMContentLoaded", () => {
         resultTable.appendChild(row);
     }
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
+    const showPreloader = (isVisible) => {
+        preloader.style.display = isVisible ? "flex" : "none";
+    };
 
-        const gameData = {
-            name: form.gameName.value,
-            description: form.gameDescription.value,
-            rating: form.gameRating.value,
-            link: form.gameLink.value,
-        };
+    const showError = (message) => {
+        const errorElement = document.createElement("div");
+        errorElement.textContent = message;
+        errorElement.style.color = "red";
+        resultTable.insertAdjacentElement("afterbegin", errorElement);
 
-        createRow(gameData);
-        form.reset();
-    });
+        setTimeout(() => errorElement.remove(), 3000);
+    };
 
-    saveDataButton.addEventListener("click", () => {
-        const rows = [...resultTable.querySelectorAll(".grid-row")];
-        const tableData = rows.map(row => {
-            const cells = row.querySelectorAll(".grid-cell");
-            return {
-                name: cells[0].textContent,
-                description: cells[1].textContent,
-                rating: cells[2].textContent,
-                link: cells[3].querySelector("a").href,
-            };
-        });
-
-        localStorage.setItem("tableData", JSON.stringify(tableData));
-        alert("Данные сохранены!");
-    });
-
-    loadDataButton.addEventListener("click", () => {
-
-        while (resultTable.firstChild) {
-            resultTable.removeChild(resultTable.firstChild);
+    const fetchGames = async () => {
+        showPreloader(true);
+        try {
+            const response = await fetch(API_BASE_URL);
+            if (!response.ok) {
+                console.error("Ошибка при загрузке данных");
+            }
+            const games = await response.json();
+            if (games.length === 0) {
+                showError("Нет данных для отображения");
+            } else {
+                games.forEach(createRow);
+            }
+        } catch (error) {
+            console.error(error);
+            showError("Не удалось загрузить данные");
+        } finally {
+            showPreloader(false);
         }
+    };
 
-        const tableData = JSON.parse(localStorage.getItem("tableData") || "[]");
-        tableData.forEach(createRow);
-        alert("Данные загружены!");
-    });
+    fetchGames();
 });
